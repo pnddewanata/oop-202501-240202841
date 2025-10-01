@@ -2,9 +2,9 @@
 Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+- Nama  : Nama Muhammad Pandu Dewanata Yaseh Hidayat
+- NIM   : NIM 240202841
+- Kelas : 3IKRA
 
 ---
 
