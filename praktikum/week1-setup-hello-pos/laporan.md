@@ -91,6 +91,8 @@ public class HelloProcedural {
     }
 }
 
+```
+```java
 // HelloOOP.java
 class MAHASISWA {
     String NAMA; int NIM;
@@ -105,6 +107,8 @@ public class HelloOOP {
     }
 }
 
+```
+```java
 // HelloFunctional.java
 import java.util.function.BiConsumer;
 public class HelloFunctional {
@@ -116,6 +120,7 @@ public class HelloFunctional {
     }
 }
 
+```
 ---
 
 ## Hasil Eksekusi
