@@ -124,7 +124,7 @@ public class HelloFunctional {
 ---
 
 ## Hasil Eksekusi
-(
+
 1. Procedural
 ![Screenshot hasil](screenshots/HelloProcedural.png)
 
@@ -133,12 +133,11 @@ public class HelloFunctional {
 
 3. Functional
 ![Screenshot hasil](screenshots/HelloFunctional.png)
-)
+
 
 ---
 
 ## Analisis
-(
 - Jelaskan bagaimana kode berjalan.
   1. Pada HelloProcedural, program berjalan dengan mendeklarasikan variabel NAMA dan NIM, kemudian memanggil method PANGGIL() secara langsung. Setiap kali method dipanggil, program akan mencetak output sesuai parameter yang dikirimkan.
 
@@ -163,12 +162,11 @@ public class HelloFunctional {
   - Memperbaiki kesalahan kecil pada constructor dan parameter method.
 
   - Membersihkan terminal sebelum menjalankan ulang program agar output lebih jelas terbaca. 
-)
 
 ---
 
 ## Kesimpulan
-(1. Praktikum ini berhasil memperkenalkan tiga paradigma pemrograman dalam Java, yaitu prosedural, berorientasi objek (OOP), dan fungsional.
+ 1. Praktikum ini berhasil memperkenalkan tiga paradigma pemrograman dalam Java, yaitu prosedural, berorientasi objek (OOP), dan fungsional.
 
  2. Pada pendekatan prosedural, program disusun dalam bentuk method dan instruksi yang dijalankan secara berurutan.
 
@@ -180,12 +178,9 @@ public class HelloFunctional {
 
  6. Melalui praktikum ini, mahasiswa dapat memahami kelebihan dan kekurangan dari masing-masing paradigma sehingga dapat memilih pendekatan yang paling sesuai dalam menyelesaikan suatu permasalahan pemrograman.
 
-)
-
 ---
 
 ## Quiz
-(
 1. Apakah OOP selalu lebih baik dari prosedural?
    **Jawaban:** 
    Tidak selalu. OOP memang lebih unggul untuk aplikasi besar dan kompleks karena modular, mudah dikembangkan, dan mendukung reuse code. Namun, untuk program kecil dan sederhana, prosedural bisa lebih cepat dan efisien karena tidak membutuhkan struktur class dan object yang rumit.
@@ -209,4 +204,4 @@ public class HelloFunctional {
 5. Bagaimana paradigma fungsional dapat membantu mengurangi kode berulang (*boilerplate code*)?
    **Jawaban:**
    Paradigma fungsional menggunakan lambda expression dan higher-order function, sehingga developer tidak perlu menulis kode berulang untuk operasi yang sama. Misalnya, operasi map(), filter(), atau reduce() bisa menggantikan loop yang panjang. Dengan begitu, kode lebih ringkas, ekspresif, dan mudah dipelihara.
-)
+
