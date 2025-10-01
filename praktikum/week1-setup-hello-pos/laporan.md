@@ -3,7 +3,7 @@ Topik: “Eksplorasi Paradigma Pemrograman Java: Dari Prosedural ke OOP hingga F
 
 ## Identitas
 - Nama  : Nama Muhammad Pandu Dewanata Yaseh Hidayat
-- NIM   : NIM 240202841
+- NIM   : 240202841
 - Kelas : 3IKRA
 
 ---
