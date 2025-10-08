@@ -222,14 +222,14 @@ public class MainProduk {
 ---
 
 ## Quiz
-   1. Mengapa atribut sebaiknya dideklarasikan sebagai private dalam class?
-      Jawaban:
-      Atribut sebaiknya dideklarasikan sebagai private agar data dalam class tidak dapat diakses atau diubah secara langsung dari luar class. Hal ini menjaga keamanan data dan mencegah perubahan yang tidak diinginkan, sesuai dengan prinsip enkapsulasi dalam OOP.
+1. Mengapa atribut sebaiknya dideklarasikan sebagai private dalam class?
+   Jawaban:
+   Atribut sebaiknya dideklarasikan sebagai private agar data dalam class tidak dapat diakses atau diubah secara langsung dari luar class. Hal ini menjaga keamanan data dan mencegah perubahan yang tidak diinginkan, sesuai dengan prinsip enkapsulasi dalam OOP.
 
-   2. Apa fungsi getter dan setter dalam enkapsulasi?
-      Jawaban:
-      Getter berfungsi untuk mengambil nilai dari atribut private, sedangkan setter berfungsi untuk mengubah nilainya dengan cara yang terkontrol. Dengan getter dan setter, data tetap terlindungi namun tetap bisa digunakan oleh class lain dengan aman.
+2. Apa fungsi getter dan setter dalam enkapsulasi?
+   Jawaban:
+   Getter berfungsi untuk mengambil nilai dari atribut private, sedangkan setter berfungsi untuk mengubah nilainya dengan cara yang terkontrol. Dengan getter dan setter, data tetap terlindungi namun tetap bisa digunakan oleh class lain dengan aman.
 
-   3. Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?
-      Jawaban:
-      Class Produk dapat menjadi fondasi dalam sistem POS (Point of Sale) karena menyimpan data penting seperti nama produk, harga, dan stok. Dengan menambahkan method seperti penghitungan total, pengurangan stok otomatis, atau integrasi dengan class lain (misalnya Transaksi atau Pelanggan), aplikasi POS dapat dikembangkan menjadi sistem yang lebih kompleks dan efisien.
+3. Bagaimana cara class Produk mendukung pengembangan aplikasi POS yang lebih kompleks?
+   Jawaban:
+   Class Produk dapat menjadi fondasi dalam sistem POS (Point of Sale) karena menyimpan data penting seperti nama produk, harga, dan stok. Dengan menambahkan method seperti penghitungan total, pengurangan stok otomatis, atau integrasi dengan class lain (misalnya Transaksi atau Pelanggan), aplikasi POS dapat dikembangkan menjadi sistem yang lebih kompleks dan efisien.
