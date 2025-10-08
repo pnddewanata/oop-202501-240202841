@@ -77,6 +77,7 @@ Pemrograman fungsional menekankan pada penggunaan fungsi sebagai first-class cit
 Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
 System.out.println(p1.getNama());
 ```
+
 ---
 
 ## Hasil Eksekusi
