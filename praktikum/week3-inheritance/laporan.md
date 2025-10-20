@@ -202,7 +202,7 @@ public class MainInheritance {
 ---
 
 ## Kesimpulan
-Kesimpulan dari praktikum minggu ini adalah bahwa konsep inheritance (pewarisan) dalam pemrograman berorientasi objek memungkinkan satu class untuk mewarisi atribut dan method dari class lain, sehingga kode menjadi lebih efisien dan mudah dikembangkan. Melalui praktikum ini, class Produk berperan sebagai class induk yang menampung atribut umum, sedangkan class Benih, Pupuk, dan AlatPertanian menjadi class turunan yang memiliki atribut dan perilaku khusus masing-masing. Dengan adanya pewarisan, setiap class turunan dapat menambahkan atau mengubah fungsi tertentu tanpa mengubah struktur dasar dari class induk. Secara keseluruhan, praktikum ini memberikan pemahaman yang lebih baik tentang bagaimana inheritance dapat meningkatkan keteraturan, reusabilitas, dan efisiensi dalam pengembangan program berbasis objek.
+   Kesimpulan dari praktikum minggu ini adalah bahwa konsep inheritance (pewarisan) dalam pemrograman berorientasi objek memungkinkan satu class untuk mewarisi atribut dan method dari class lain, sehingga kode menjadi lebih efisien dan mudah dikembangkan. Melalui praktikum ini, class Produk berperan sebagai class induk yang menampung atribut umum, sedangkan class Benih, Pupuk, dan AlatPertanian menjadi class turunan yang memiliki atribut dan perilaku khusus masing-masing. Dengan adanya pewarisan, setiap class turunan dapat menambahkan atau mengubah fungsi tertentu tanpa mengubah struktur dasar dari class induk. Secara keseluruhan, praktikum ini memberikan pemahaman yang lebih baik tentang bagaimana inheritance dapat meningkatkan keteraturan, reusabilitas, dan efisiensi dalam pengembangan program berbasis objek.
 ---
 
 ## Quiz
