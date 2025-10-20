@@ -191,7 +191,7 @@ public class MainInheritance {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
+![Screenshot hasil](/praktikum/week3-inheritance/screenshots/Output%20Week3.png)
 )
 ---
 
