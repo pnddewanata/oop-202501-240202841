@@ -1,5 +1,5 @@
 # Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+Topik: Penerapan Konsep Inheritance dan Polymorphism dalam Pemrograman Berorientasi Objek
 
 ## Identitas
 - Nama  : Muhammad Pandu Dewanata Yaseh Hidayat
