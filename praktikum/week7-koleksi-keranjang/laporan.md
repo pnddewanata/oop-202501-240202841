@@ -196,31 +196,31 @@ Map (misal: HashMap)
 
 2. Mengapa ArrayList cocok digunakan untuk keranjang belanja sederhana?
 Karena dalam keranjang belanja sederhana, pengguna biasanya:
-- Bisa memasukkan produk yang sama lebih dari sekali (misal: 2 bungkus beras → dianggap sebagai dua entri terpisah),
-- Ingin melihat produk sesuai urutan saat dimasukkan,
-- Tidak perlu menghitung kuantitas per produk secara eksplisit.
+   - Bisa memasukkan produk yang sama lebih dari sekali (misal: 2 bungkus beras → dianggap sebagai dua entri terpisah),
+   - Ingin melihat produk sesuai urutan saat dimasukkan,
+   - Tidak perlu menghitung kuantitas per produk secara eksplisit.
 ArrayList mendukung semua ini secara alami: ia mempertahankan urutan, memungkinkan duplikat, dan mudah digunakan untuk operasi tambah/hapus.
 
 3. Bagaimana struktur Set mencegah duplikasi data?
-Set (seperti HashSet) menggunakan kombinasi dari metode equals() dan hashCode() dari objek untuk menentukan keunikan:
-- Saat menambahkan elemen baru, Set memeriksa apakah sudah ada elemen dengan hashCode() yang sama.
-- Jika ya, lalu dicek dengan equals() untuk memastikan benar-benar sama.
-- Jika equals() mengembalikan true, elemen tidak ditambahkan (karena dianggap duplikat).
-Jadi, duplikasi dicegah secara otomatis selama kelas objek meng-override equals() dan hashCode() dengan benar.
+   Set (seperti HashSet) menggunakan kombinasi dari metode equals() dan hashCode() dari objek untuk menentukan keunikan:
+   - Saat menambahkan elemen baru, Set memeriksa apakah sudah ada elemen dengan hashCode() yang sama.
+   - Jika ya, lalu dicek dengan equals() untuk memastikan benar-benar sama.
+   - Jika equals() mengembalikan true, elemen tidak ditambahkan (karena dianggap duplikat).
+   Jadi, duplikasi dicegah secara otomatis selama kelas objek meng-override equals() dan    hashCode() dengan benar.
 
 4. Kapan sebaiknya menggunakan Map dibandingkan List? Jelaskan dengan contoh.
-Gunakan Map ketika Anda perlu:
-- Mengaitkan data dengan kunci tertentu, atau
-- Melacak jumlah (kuantitas) per item secara efisien.
+   Gunakan Map ketika Anda perlu:
+   - Mengaitkan data dengan kunci tertentu, atau
+   - Melacak jumlah (kuantitas) per item secara efisien.
 
-Contoh:
-Dalam keranjang belanja yang mendukung kuantitas, alih-alih menyimpan 5 objek Beras di List, lebih efisien menyimpan:
-```java
-Map<Product, Integer> keranjang = new HashMap<>();
-keranjang.put(beras, 5);  // "Beras" → jumlah 5
-```
-Keuntungan Map:
-- Hemat memori (tidak simpan objek berulang),
-- Mudah memperbarui jumlah (keranjang.put(beras, 6)),
-- Total harga dihitung cepat: harga × kuantitas.
-Sedangkan List cocok hanya jika setiap entri dianggap unik terlepas dari jenis produknya (misal: log transaksi).
+   Contoh:
+   Dalam keranjang belanja yang mendukung kuantitas, alih-alih menyimpan 5 objek Beras di List, lebih efisien menyimpan:
+   ```java
+   Map<Product, Integer> keranjang = new HashMap<>();
+   keranjang.put(beras, 5);  // "Beras" → jumlah 5
+   ```
+   Keuntungan Map:
+   - Hemat memori (tidak simpan objek berulang),
+   - Mudah memperbarui jumlah (keranjang.put(beras, 6)),
+   - Total harga dihitung cepat: harga × kuantitas.
+   Sedangkan List cocok hanya jika setiap entri dianggap unik terlepas dari jenis produknya        (misal: log transaksi).
