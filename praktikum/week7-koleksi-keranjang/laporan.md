@@ -189,10 +189,10 @@ Map (misal: HashMap)
 → Setiap key harus unik, tetapi value boleh duplikat.
 → Akses data berdasarkan key, bukan indeks.
 
-Inti perbedaan:
-- List = urutan + duplikat diizinkan
-- Set = keunikan + tanpa urutan
-- Map = asosiasi (key → value)
+   Inti perbedaan:
+   - List = urutan + duplikat diizinkan
+   - Set = keunikan + tanpa urutan
+   - Map = asosiasi (key → value)
 
 2. Mengapa ArrayList cocok digunakan untuk keranjang belanja sederhana?
 Karena dalam keranjang belanja sederhana, pengguna biasanya:
