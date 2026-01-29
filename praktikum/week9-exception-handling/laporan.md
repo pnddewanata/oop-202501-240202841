@@ -58,7 +58,7 @@ try {
 
 ## Hasil Eksekusi
 (Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/week%209.png)
+![Screenshot hasil](screenshots/week%209.png
 )
 ---
 

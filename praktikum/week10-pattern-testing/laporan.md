@@ -1,73 +1,107 @@
-# Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+# Laporan Praktikum Minggu 10
+
+Topik: Design Pattern (Singleton, MVC) dan Unit Testing menggunakan JUnit
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+
+* Nama  : Muhammad Pandu Dewanata Yaseh Hidayat
+* NIM   : 240202841
+* Kelas : 3IKRA
 
 ---
 
 ## Tujuan
-(Tuliskan tujuan praktikum minggu ini.  
-Contoh: *Mahasiswa memahami konsep class dan object serta dapat membuat class Produk dengan enkapsulasi.*)
+
+Tujuan dari praktikum minggu ke-10 ini adalah agar mahasiswa memahami konsep dasar design pattern, khususnya Singleton dan Model–View–Controller (MVC), serta mampu mengimplementasikannya pada aplikasi Java sederhana. Selain itu, mahasiswa diharapkan mampu membuat dan menjalankan unit testing menggunakan JUnit untuk memastikan kode berjalan sesuai dengan yang diharapkan.
 
 ---
 
 ## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
-1. Class adalah blueprint dari objek.  
-2. Object adalah instansiasi dari class.  
-3. Enkapsulasi digunakan untuk menyembunyikan data.)
+
+1. Design pattern merupakan solusi umum yang telah teruji untuk menyelesaikan permasalahan berulang dalam pengembangan perangkat lunak.
+2. Singleton Pattern digunakan untuk memastikan bahwa suatu class hanya memiliki satu instance selama aplikasi berjalan.
+3. MVC (Model–View–Controller) memisahkan antara data, tampilan, dan logika kontrol agar kode lebih terstruktur.
+4. Unit testing bertujuan untuk menguji bagian terkecil dari program secara terisolasi.
+5. JUnit adalah framework testing pada Java yang digunakan untuk membuat dan menjalankan unit test.
 
 ---
 
 ## Langkah Praktikum
-(Tuliskan Langkah-langkah dalam prakrikum, contoh:
-1. Langkah-langkah yang dilakukan (setup, coding, run).  
-2. File/kode yang dibuat.  
-3. Commit message yang digunakan.)
+
+1. Menyiapkan struktur project praktikum week10-pattern-testing menggunakan Maven.
+2. Membuat class DatabaseConnection dengan menerapkan Singleton Pattern.
+3. Mengimplementasikan pola MVC pada fitur Product yang terdiri dari Model, View, dan Controller.
+4. Membuat class utama (AppMVC) untuk mengintegrasikan seluruh komponen MVC.
+5. Membuat unit test menggunakan JUnit untuk menguji fungsi pada class Product.
+6. Menjalankan unit test menggunakan perintah mvn test dan memastikan seluruh test berjalan sukses.
+7. Melakukan commit dengan message: week10-pattern-testing: implement singleton, mvc, dan junit test.
 
 ---
 
 ## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
+
+Contoh integrasi MVC pada program utama:
 
 ```java
-// Contoh
-Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
-System.out.println(p1.getNama());
+Product product = new Product("P01", "Pupuk Organik");
+ConsoleView view = new ConsoleView();
+ProductController controller = new ProductController(product, view);
+controller.showProduct();
 ```
-)
+
+Contoh implementasi Singleton:
+
+```java
+public class DatabaseConnection {
+    private static DatabaseConnection instance;
+
+    private DatabaseConnection() {}
+
+    public static DatabaseConnection getInstance() {
+        if (instance == null) {
+            instance = new DatabaseConnection();
+        }
+        return instance;
+    }
+}
+```
+
 ---
 
 ## Hasil Eksekusi
-(Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
-)
+
+Hasil eksekusi program menampilkan data produk melalui ConsoleView. Selain itu, hasil unit testing menggunakan JUnit menunjukkan bahwa seluruh test berhasil dijalankan tanpa error.
+
+![Screenshot hasil](screenshots/junit_result.png)
+
 ---
 
 ## Analisis
-(
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
-)
+
+Pada praktikum ini, program berjalan dengan memanfaatkan pola MVC, di mana data produk disimpan pada Model, tampilan ditangani oleh View, dan alur logika dikontrol oleh Controller. Pendekatan ini berbeda dengan minggu sebelumnya yang masih menggabungkan logika dan tampilan dalam satu class.
+
+Penerapan Singleton memastikan bahwa koneksi database hanya dibuat satu kali sehingga lebih efisien dan aman. Unit testing menggunakan JUnit membantu memastikan bahwa method pada class Product berjalan sesuai dengan yang diharapkan.
+
+Kendala yang dihadapi adalah kesalahan konfigurasi package pada awal pembuatan unit test, namun dapat diatasi dengan menyesuaikan struktur direktori dan import class yang benar.
+
 ---
 
 ## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
+
+Berdasarkan praktikum minggu ke-10, dapat disimpulkan bahwa penerapan design pattern seperti Singleton dan MVC mampu membuat struktur program menjadi lebih rapi, terorganisir, dan mudah dikembangkan. Selain itu, penggunaan unit testing dengan JUnit sangat membantu dalam menjaga kualitas dan keandalan kode program.
 
 ---
 
 ## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
 
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
+1. Mengapa constructor pada Singleton harus bersifat private?
+   **Jawaban:** Agar objek dari class tersebut tidak dapat dibuat secara langsung dari luar class, sehingga jumlah instance dapat dikontrol.
 
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
+2. Jelaskan manfaat pemisahan Model, View, dan Controller.
+   **Jawaban:** Pemisahan ini membuat kode lebih terstruktur, mudah dipelihara, dan memudahkan pengembangan serta pengujian.
+
+3. Apa peran unit testing dalam menjaga kualitas perangkat lunak?
+   **Jawaban:** Unit testing membantu mendeteksi kesalahan lebih awal dan memastikan setiap fungsi berjalan sesuai spesifikasi.
+
+4. Apa risiko jika Singleton tidak diimplementasikan dengan benar?
+   **Jawaban:** Dapat menyebabkan lebih dari satu instance terbentuk, yang berpotensi menimbulkan inkonsistensi data dan pemborosan resource.

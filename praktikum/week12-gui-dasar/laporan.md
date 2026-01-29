@@ -1,73 +1,102 @@
-# Laporan Praktikum Minggu 1 (sesuaikan minggu ke berapa?)
-Topik: [Tuliskan judul topik, misalnya "Class dan Object"]
+# Laporan Praktikum Minggu 12
+
+Topik: GUI Dasar JavaFX (Event-Driven Programming)
 
 ## Identitas
-- Nama  : [Nama Mahasiswa]
-- NIM   : [NIM Mahasiswa]
-- Kelas : [Kelas]
+
+* Nama  : Muhammad Pandu Dewanata Yaseh Hidayat
+* NIM   : 240202841
+* Kelas : 3IKRA
 
 ---
 
 ## Tujuan
-(Tuliskan tujuan praktikum minggu ini.  
-Contoh: *Mahasiswa memahami konsep class dan object serta dapat membuat class Produk dengan enkapsulasi.*)
+
+Tujuan dari praktikum minggu ke-12 ini adalah agar mahasiswa memahami konsep event-driven programming serta mampu membangun antarmuka grafis sederhana menggunakan JavaFX. Mahasiswa juga diharapkan dapat mengintegrasikan GUI dengan backend aplikasi yang telah dibuat sebelumnya menggunakan DAO dan Service.
 
 ---
 
 ## Dasar Teori
-(Tuliskan ringkasan teori singkat (3–5 poin) yang mendasari praktikum.  
-Contoh:  
-1. Class adalah blueprint dari objek.  
-2. Object adalah instansiasi dari class.  
-3. Enkapsulasi digunakan untuk menyembunyikan data.)
+
+1. Event-driven programming adalah paradigma pemrograman yang alur eksekusinya dipicu oleh suatu event, seperti klik tombol.
+2. JavaFX merupakan framework Java untuk membangun aplikasi berbasis GUI.
+3. MVC (Model–View–Controller) memisahkan logika data, tampilan, dan kontrol aplikasi.
+4. Service berfungsi sebagai penghubung antara Controller dan DAO.
+5. Pemisahan layer aplikasi mendukung prinsip SOLID, khususnya Dependency Inversion Principle (DIP).
 
 ---
 
 ## Langkah Praktikum
-(Tuliskan Langkah-langkah dalam prakrikum, contoh:
-1. Langkah-langkah yang dilakukan (setup, coding, run).  
-2. File/kode yang dibuat.  
-3. Commit message yang digunakan.)
+
+1. Menyiapkan project JavaFX pada direktori praktikum week12-gui-dasar.
+2. Menggunakan kembali class Product, ProductDAO, dan ProductService dari praktikum sebelumnya.
+3. Membuat form GUI JavaFX untuk input data produk.
+4. Menambahkan event handler pada tombol Tambah Produk.
+5. Menghubungkan event GUI dengan ProductController dan ProductService.
+6. Menampilkan data produk hasil input pada ListView.
+7. Menjalankan aplikasi dan mendokumentasikan hasil GUI.
+8. Melakukan commit dengan message: week12-gui-dasar: implementasi gui dasar javafx.
 
 ---
 
 ## Kode Program
-(Tuliskan kode utama yang dibuat, contoh:  
+
+Contoh event handling pada JavaFX:
 
 ```java
-// Contoh
-Produk p1 = new Produk("BNH-001", "Benih Padi", 25000, 100);
-System.out.println(p1.getNama());
+btnAdd.setOnAction(event -> {
+    Product p = new Product(
+        txtCode.getText(),
+        txtName.getText(),
+        Double.parseDouble(txtPrice.getText()),
+        Integer.parseInt(txtStock.getText())
+    );
+    productService.insert(p);
+    listView.getItems().add(p.getCode() + " - " + p.getName());
+});
 ```
-)
+
 ---
 
 ## Hasil Eksekusi
-(Sertakan screenshot hasil eksekusi program.  
-![Screenshot hasil](screenshots/hasil.png)
-)
+
+Aplikasi JavaFX berhasil dijalankan dan menampilkan form input produk. Saat tombol Tambah Produk ditekan, data produk berhasil disimpan melalui backend dan ditampilkan pada ListView.
+
+![Screenshot hasil](screenshots/gui_form_produk.png)
+
 ---
 
 ## Analisis
-(
-- Jelaskan bagaimana kode berjalan.  
-- Apa perbedaan pendekatan minggu ini dibanding minggu sebelumnya.  
-- Kendala yang dihadapi dan cara mengatasinya.  
-)
+
+Pada praktikum ini, GUI JavaFX bertindak sebagai View yang hanya menangani interaksi pengguna. Event tombol Tambah memicu Controller untuk memproses data dan meneruskannya ke Service, yang kemudian memanggil DAO untuk menyimpan data ke database.
+
+Pendekatan ini berbeda dengan praktikum sebelumnya yang masih berbasis console, karena pada minggu ini aplikasi sudah bersifat visual dan event-driven. Kendala yang dihadapi adalah validasi input dan konversi tipe data, namun dapat diatasi dengan pengecekan input sebelum diproses.
+
 ---
 
 ## Kesimpulan
-(Tuliskan kesimpulan dari praktikum minggu ini.  
-Contoh: *Dengan menggunakan class dan object, program menjadi lebih terstruktur dan mudah dikembangkan.*)
+
+Berdasarkan praktikum minggu ke-12, dapat disimpulkan bahwa JavaFX mendukung pembuatan GUI yang interaktif dan terintegrasi dengan backend aplikasi. Dengan pendekatan MVC dan event-driven programming, aplikasi menjadi lebih terstruktur dan mudah dikembangkan.
 
 ---
 
 ## Quiz
-(1. [Tuliskan kembali pertanyaan 1 dari panduan]  
-   **Jawaban:** …  
 
-2. [Tuliskan kembali pertanyaan 2 dari panduan]  
-   **Jawaban:** …  
+1. Apa yang dimaksud dengan event-driven programming?
+   **Jawaban:** Paradigma pemrograman yang alur programnya ditentukan oleh event atau aksi pengguna.
 
-3. [Tuliskan kembali pertanyaan 3 dari panduan]  
-   **Jawaban:** …  )
+2. Mengapa GUI tidak boleh memanggil DAO secara langsung?
+   **Jawaban:** Agar pemisahan tanggung jawab tetap terjaga dan sesuai prinsip SOLID, khususnya DIP.
+
+3. Apa peran ProductService dalam arsitektur aplikasi?
+   **Jawaban:** Sebagai penghubung antara Controller dan DAO untuk mengelola logika bisnis.
+
+---
+
+## Tabel Traceability Bab 6 ke GUI
+
+| Artefak Bab 6 | Referensi           | Handler GUI   | Controller/Service                                | DAO                 | Dampak UI/DB                  |
+| ------------- | ------------------- | ------------- | ------------------------------------------------- | ------------------- | ----------------------------- |
+| Use Case      | UC-01 Tambah Produk | Tombol Tambah | ProductController.add() → ProductService.insert() | ProductDAO.insert() | UI bertambah & data tersimpan |
+| Activity      | AD-01 Tambah Produk | Tombol Tambah | Validasi → Simpan                                 | Insert Product      | Data tampil di ListView       |
+| Sequence      | SD-01 Tambah Produk | Tombol Tambah | View→Controller→Service                           | DAO→DB              | Alur sesuai diagram           |
