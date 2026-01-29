@@ -44,13 +44,52 @@ Tujuan dari praktikum minggu ke-13 ini adalah agar mahasiswa mampu menampilkan d
 Contoh event handler menggunakan lambda expression:
 
 ```java
-btnDelete.setOnAction(e -> {
-    Product selected = table.getSelectionModel().getSelectedItem();
-    if (selected != null) {
-        productService.delete(selected.getCode());
-        loadData();
+package com.upb.agripos;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+
+import com.upb.agripos.controller.ProductController;
+import com.upb.agripos.dao.ProductDAO;
+import com.upb.agripos.dao.ProductDAOImpl;
+import com.upb.agripos.service.ProductService;
+import com.upb.agripos.view.ProductTableView;
+
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class AppJavaFX extends Application {
+
+    @Override
+    public void start(Stage stage) {
+        try {
+            // 1. Setup Database Connection
+            Connection conn = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/agripos", "postgres", "123456"
+            );
+
+            // 2. Setup MVC 
+            ProductDAO dao = new ProductDAOImpl(conn);
+            ProductService service = new ProductService(dao);
+            ProductTableView view = new ProductTableView();
+            new ProductController(service, view);
+
+            // 3. Show Scene
+            Scene scene = new Scene(view, 800, 600);
+            stage.setTitle("Agri-POS Week 13 - Muhammad Pandu Dewanata Yaseh Hidayat (240202841)");
+            stage.setScene(scene);
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
-});
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+}
 ```
 
 ---
@@ -59,7 +98,7 @@ btnDelete.setOnAction(e -> {
 
 Aplikasi JavaFX berhasil menampilkan data produk dalam bentuk TableView. Data diambil langsung dari database PostgreSQL. Fitur tambah dan hapus produk berjalan dengan baik, serta perubahan data langsung tercermin pada tampilan GUI.
 
-![Screenshot hasil](screenshots/tableview_produk.png)
+![Screenshot hasil](screenshots/week13.jpeg)
 
 ---
 
@@ -90,20 +129,4 @@ Berdasarkan praktikum minggu ke-13, dapat disimpulkan bahwa penggunaan TableView
 
 ---
 
-## Tabel Traceability Bab 6 ke GUI
 
-| Artefak Bab 6 | Referensi                 | Handler GUI            | Controller/Service                                       | DAO                     | Dampak UI/DB                     |
-| ------------- | ------------------------- | ---------------------- | -------------------------------------------------------- | ----------------------- | -------------------------------- |
-| Use Case      | UC-02 Lihat Daftar Produk | loadData() / init view | ProductController.load() → ProductService.findAll()      | ProductDAO.findAll()    | TableView terisi dari DB         |
-| Use Case      | UC-03 Hapus Produk        | Tombol Hapus           | ProductController.delete() → ProductService.delete(code) | ProductDAO.delete(code) | Data terhapus & TableView reload |
-| Sequence      | SD-02 Hapus Produk        | Tombol Hapus           | View→Controller→Service                                  | DAO→DB                  | Urutan sesuai diagram            |
-
----
-
-## Ringkasan Integrasi
-
-| Pertemuan | Hasil                             |
-| --------- | --------------------------------- |
-| 11        | DAO + JDBC                        |
-| 12        | GUI JavaFX dasar                  |
-| 13        | GUI lanjutan + TableView + Lambda |

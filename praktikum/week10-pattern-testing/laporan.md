@@ -43,28 +43,33 @@ Tujuan dari praktikum minggu ke-10 ini adalah agar mahasiswa memahami konsep das
 Contoh integrasi MVC pada program utama:
 
 ```java
-Product product = new Product("P01", "Pupuk Organik");
-ConsoleView view = new ConsoleView();
-ProductController controller = new ProductController(product, view);
-controller.showProduct();
-```
+package com.upb.agripos;
 
-Contoh implementasi Singleton:
+import com.upb.agripos.config.DatabaseConnection;
+import com.upb.agripos.controller.ProductController;
+import com.upb.agripos.model.Product;
+import com.upb.agripos.view.ConsoleView;
 
-```java
-public class DatabaseConnection {
-    private static DatabaseConnection instance;
+public class AppMVC {
+    public static void main(String[] args) {
 
-    private DatabaseConnection() {}
+        System.out.println("Hello, Muhammad Pandu Dewanata Yaseh Hidayat (Week10)");
 
-    public static DatabaseConnection getInstance() {
-        if (instance == null) {
-            instance = new DatabaseConnection();
-        }
-        return instance;
+        // Singleton test
+        DatabaseConnection db1 = DatabaseConnection.getInstance();
+        db1.connect();
+
+        // MVC
+        Product product = new Product("P01", "Pupuk Organik");
+        ConsoleView view = new ConsoleView();
+        ProductController controller = new ProductController(product, view);
+
+        controller.showProduct();
     }
 }
 ```
+
+
 
 ---
 
@@ -72,7 +77,8 @@ public class DatabaseConnection {
 
 Hasil eksekusi program menampilkan data produk melalui ConsoleView. Selain itu, hasil unit testing menggunakan JUnit menunjukkan bahwa seluruh test berhasil dijalankan tanpa error.
 
-![Screenshot hasil](screenshots/junit_result.png)
+![Screenshot hasil](screenshots/week10testing.jpeg)
+![Screenshot hasil](screenshots/week10db.jpeg)
 
 ---
 
